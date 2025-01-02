@@ -2,7 +2,7 @@
   "name": "task-manager",
   "version": "1.0.0",
   "description": "Create a task manager with CRUD functionalities with React.",
-  "main": "index.js",
+  "main": "index.jsx",
   "scripts": {
     "lint": "eslint",
     "start": "react-scripts start",
@@ -23,5 +23,17 @@
     "eslint": "^8.57.1",
     "eslint-plugin-react": "^7.37.3",
     "globals": "^15.14.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
