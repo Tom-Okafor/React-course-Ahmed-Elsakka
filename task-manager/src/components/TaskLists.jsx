@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const TaskLists = ({ taskList, markTaskCompleted }) => {
+const TaskLists = ({ taskList, markTaskCompleted, deleteTask }) => {
   return taskList.length ? (
     <ul>
       {taskList.map((task, i) => {
@@ -17,11 +17,19 @@ const TaskLists = ({ taskList, markTaskCompleted }) => {
               type="checkbox"
               name={task.text}
               id={i}
+              checked={task.checked}
               onChange={() => {
                 markTaskCompleted(i);
               }}
             />
             {task.text}
+            <button
+              onClick={() => {
+                deleteTask(i);
+              }}
+            >
+              delete task
+            </button>
           </li>
         );
       })}
@@ -34,6 +42,7 @@ const TaskLists = ({ taskList, markTaskCompleted }) => {
 TaskLists.propTypes = {
   taskList: PropTypes.array,
   markTaskCompleted: PropTypes.func,
+  deleteTask: PropTypes.func,
 };
 
 export default TaskLists;

@@ -38,6 +38,14 @@ export default function App() {
     });
   }
 
+  function deleteTask(i) {
+    setFormDetails((prevDetails) => {
+      const { formText } = prevDetails;
+      const newFormText = formText.filter((_, index) => i !== index);
+      return { ...prevDetails, formText: newFormText };
+    });
+  }
+
   return (
     <>
       <h1>TASK MANAGER</h1>
@@ -46,7 +54,11 @@ export default function App() {
         updateInputValue={updateInputValue}
         inputValue={inputValue}
       />
-      <TaskLists taskList={formText} markTaskCompleted={markTaskCompleted} />
+      <TaskLists
+        taskList={formText}
+        markTaskCompleted={markTaskCompleted}
+        deleteTask={deleteTask}
+      />
     </>
   );
 }
