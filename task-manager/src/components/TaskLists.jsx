@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const TaskLists = ({ taskList, markTaskCompleted, deleteTask }) => {
-  return taskList.length ? (
+const TaskLists = ({ taskList, markTaskCompleted, deleteTask }) =>
+  taskList.length ? (
     <ul>
       {taskList.map((task, i) => {
         return (
@@ -37,7 +37,6 @@ const TaskLists = ({ taskList, markTaskCompleted, deleteTask }) => {
   ) : (
     <h2>No tasks yet!</h2>
   );
-};
 
 TaskLists.propTypes = {
   taskList: PropTypes.array,
