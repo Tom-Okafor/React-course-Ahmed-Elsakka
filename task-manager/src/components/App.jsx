@@ -28,16 +28,13 @@ export default function App() {
   }
   function markTaskCompleted(i) {
     setFormDetails((prevDetails) => {
-      const details = prevDetails;
-      const { formText } = details;
+      const { formText } = prevDetails;
       const newFormText = formText.map((eachText, index) =>
         index === i
           ? { text: eachText.text, checked: !eachText.checked }
           : eachText
       );
-      console.log(details);
-      console.log(...newFormText);
-      return { ...details, formText: [...newFormText] };
+      return { ...prevDetails, formText: [...newFormText] };
     });
   }
 
