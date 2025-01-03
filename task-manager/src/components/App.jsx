@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import TaskInputForm from "./TaskInputForm";
 import TaskLists from "./TaskLists";
+import "../App.css";
 
 export default function App() {
   const [formDetails, setFormDetails] = useState({

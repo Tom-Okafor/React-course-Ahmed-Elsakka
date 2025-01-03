@@ -6,13 +6,7 @@ const TaskLists = ({ taskList, markTaskCompleted, deleteTask }) => {
     <ul>
       {taskList.map((task, i) => {
         return (
-          <li
-            key={i}
-            id={i}
-            style={{
-              textDecoration: task.checked && "line-through",
-            }}
-          >
+          <li key={i} id={i}>
             <input
               type="checkbox"
               name={task.text}
@@ -22,13 +16,19 @@ const TaskLists = ({ taskList, markTaskCompleted, deleteTask }) => {
                 markTaskCompleted(i);
               }}
             />
-            {task.text}
+            <span
+              style={{
+                textDecoration: task.checked && "line-through",
+              }}
+            >
+              {task.text}
+            </span>
             <button
               onClick={() => {
                 deleteTask(i);
               }}
             >
-              delete task
+              Delete
             </button>
           </li>
         );
