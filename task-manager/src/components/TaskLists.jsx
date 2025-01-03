@@ -1,31 +1,33 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useContext } from "react";
+import { TaskContext } from "./TaskContext";
 
-const TaskLists = ({ taskList, markTaskCompleted, deleteTask }) =>
-  taskList.length ? (
+const TaskLists = () => {
+  const { state, dispatch } = useContext(TaskContext);
+  const { tasks } = state;
+  return tasks.length ? (
     <ul>
-      {taskList.map((task, i) => {
+      {tasks.map((task, i) => {
         return (
           <li key={i} id={i}>
             <input
               type="checkbox"
               name={task.text}
               id={i}
-              checked={task.checked}
+              checked={task.isTaskCompleted}
               onChange={() => {
-                markTaskCompleted(i);
+                dispatch({ type: "Toggle Task", payload: i });
               }}
             />
             <span
               style={{
-                textDecoration: task.checked && "line-through",
+                textDecoration: task.isTaskCompleted && "line-through",
               }}
             >
               {task.text}
             </span>
             <button
               onClick={() => {
-                deleteTask(i);
+                dispatch({ type: "Delete Task", payload: i });
               }}
             >
               Delete
@@ -37,11 +39,6 @@ const TaskLists = ({ taskList, markTaskCompleted, deleteTask }) =>
   ) : (
     <h2>No tasks yet!</h2>
   );
-
-TaskLists.propTypes = {
-  taskList: PropTypes.array,
-  markTaskCompleted: PropTypes.func,
-  deleteTask: PropTypes.func,
 };
 
 export default TaskLists;

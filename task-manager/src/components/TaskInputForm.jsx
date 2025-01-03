@@ -1,12 +1,17 @@
-import React from "react";
-import PropTypes from "prop-types";
-
-const TaskInputForm = ({ updateFormText, updateInputValue, inputValue }) => {
+import React, { useState, useContext } from "react";
+import { TaskContext } from "./TaskContext";
+const TaskInputForm = () => {
+  const { dispatch } = useContext(TaskContext);
+  const [inputValue, setInputValue] = useState("");
+  function updateInputValue(event) {
+    setInputValue(event.target.value);
+  }
   return (
     <form
       onSubmit={function (event) {
         event.preventDefault();
-        updateFormText();
+        dispatch({ type: "Add Task", payload: inputValue });
+        setInputValue("")
       }}
     >
       <input
@@ -18,12 +23,6 @@ const TaskInputForm = ({ updateFormText, updateInputValue, inputValue }) => {
       <input type="submit" value="Add task!" />
     </form>
   );
-};
-
-TaskInputForm.propTypes = {
-  updateFormText: PropTypes.func,
-  updateInputValue: PropTypes.func,
-  inputValue: PropTypes.string,
 };
 
 export default TaskInputForm;
