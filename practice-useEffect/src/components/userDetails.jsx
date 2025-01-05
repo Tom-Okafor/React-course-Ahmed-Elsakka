@@ -8,17 +8,22 @@ const UserDetails = () => {
   });
   const updateDetails = (event) => {
     setDetails((prevDetails) => {
-      return { ...prevDetails, inputValue: event.target.value };
+      return !event.target.value
+        ? { inputValue: event.target.value, userData: "", error: "" }
+        : { ...prevDetails, inputValue: event.target.value };
     });
   };
   const { inputValue, userData, error } = details;
 
   useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
     inputValue &&
       (async () => {
         try {
           const response = await fetch(
-            `https://jsonplaceholder.typicode.com/users/${inputValue}`
+            `https://jsonplaceholder.typicode.com/users/${inputValue}`,
+            { signal }
           );
           console.log(response);
           if (!response.ok) {
@@ -26,7 +31,7 @@ const UserDetails = () => {
           }
           const data = await response.json();
           setDetails((prevDetails) => {
-            return { ...prevDetails, userData: data };
+            return { ...prevDetails, userData: data, error: "" };
           });
         } catch (error) {
           console.error("Not found", error);
@@ -39,12 +44,15 @@ const UserDetails = () => {
           });
         }
       })();
-  }, [inputValue]);
+    return () => {
+      controller.abort();
+    };
+  }, [inputValue, error]);
 
   return (
     <div className="userdetails">
       <input type="text" value={inputValue} onChange={updateDetails} />
-      {userData && inputValue ? (
+      {userData ? (
         <>
           <p>
             <strong>Name:</strong> {userData.name}
@@ -56,7 +64,7 @@ const UserDetails = () => {
             <strong>User Email:</strong> {userData.email}
           </p>
         </>
-      ) : error && inputValue ? (
+      ) : error ? (
         <p>{error}</p>
       ) : (
         <h3>Please input a value</h3>
