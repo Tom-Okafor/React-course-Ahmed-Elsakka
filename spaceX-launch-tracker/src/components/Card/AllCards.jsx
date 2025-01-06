@@ -105,7 +105,7 @@ const AllCards = () => {
           <Card
             key={id}
             name={name}
-            date={date_local}
+            date={new Date(date_local).toDateString()}
             rocket={rocket}
             details={details}
             launchSite={launchpad}

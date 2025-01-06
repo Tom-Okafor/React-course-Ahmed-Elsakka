@@ -13,10 +13,22 @@ const Card = ({
     <div className="card">
       <h3>{name}</h3>
       <img alt="launch" src={imageSource} />
-      <p>{date}</p>
-      <p>{rocket}</p>
-      <p>{launchSite}</p>
-      <p>{details}</p>
+      <p>
+        <strong>Date: </strong>
+        {date}
+      </p>
+      <p>
+        <strong>Rocket: </strong>
+        {rocket}
+      </p>
+      <p>
+        <strong>Launch Pad: </strong>
+        {launchSite}
+      </p>
+      <p>
+        <strong>Details: </strong>
+        {details}
+      </p>
       <a href={webcast} target="blank">
         Watch Launch
       </a>
