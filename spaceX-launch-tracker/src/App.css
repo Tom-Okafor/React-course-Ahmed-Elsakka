@@ -1,6 +1,14 @@
 .active {
     background-color: cornflowerblue;
+    outline: 2px solid #64ed77;
 }
+
+button:focus {
+    outline: 4px solid #64ed77;
+    margin-inline: 5px;
+
+}
+
 
 button {
     transition: all 500ms ease-in-out;
@@ -8,4 +16,11 @@ button {
     -moz-transition: all 500ms ease-in-out;
     -ms-transition: all 500ms ease-in-out;
     -o-transition: all 500ms ease-in-out;
+    margin-bottom: 10px;
+}
+
+h1 {
+    color: #64ed77;
+    text-align: center;
+    padding-block: 2rem;
 }

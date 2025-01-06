@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import { CardData } from "../App";
 import Card from "./Card";
 import Button from "../Button";
+import "../../AllCards.css";
 
 const AllCards = () => {
   const spaceXLauchesData = useContext(CardData);
@@ -71,7 +72,7 @@ const AllCards = () => {
       };
     });
   }
-  
+
   useEffect(() => {
     setPageControls((previousControls) => {
       return {
@@ -95,7 +96,10 @@ const AllCards = () => {
           rocket,
           details,
           launchpad,
-          links: { webcast },
+          links: {
+            webcast,
+            patch: { small },
+          },
         } = eachLaunch;
         return (
           <Card
@@ -106,10 +110,11 @@ const AllCards = () => {
             details={details}
             launchSite={launchpad}
             webcast={webcast}
+            imageSource={small}
           />
         );
       })}
-      {pageButtons}
+      <div className="buttonBlock"> {pageButtons}</div>
     </main>
   );
 };
