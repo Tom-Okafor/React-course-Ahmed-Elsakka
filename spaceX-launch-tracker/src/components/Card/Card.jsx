@@ -12,7 +12,14 @@ const Card = ({
   return (
     <div className="card">
       <h3>{name}</h3>
-      <img alt="launch" src={imageSource} />
+      <img
+        alt="launch"
+        src={
+          !imageSource
+            ? "https://i.pinimg.com/originals/f0/b8/3b/f0b83bfe08c85e745eb178b52fb00069.png"
+            : imageSource
+        }
+      />
       <p>
         <strong>Date: </strong>
         {date}
@@ -25,10 +32,13 @@ const Card = ({
         <strong>Launch Pad: </strong>
         {launchSite}
       </p>
-      <p>
-        <strong>Details: </strong>
-        {details}
-      </p>
+      {details && (
+        <p>
+          <strong>Details: </strong>
+          {details}
+        </p>
+      )}
+
       <a href={webcast} target="blank">
         Watch Launch
       </a>
