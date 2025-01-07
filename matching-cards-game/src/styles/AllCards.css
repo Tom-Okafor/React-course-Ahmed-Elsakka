@@ -1,26 +1,36 @@
 .card-box {
-    width: clamp(200px, 85vw, 1000px);
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     row-gap: 1rem;
-    justify-content: center;
+    justify-content: center; */
+    display: grid;
+    width: clamp(200px, 90vw, 600px);
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 100px;
+    gap: 1rem;
 }
 
 
 .card {
-    height: 150px;
-    width: 150px;
+    height: 100%;
+    width: 100%;
     position: relative;
     perspective: 600px;
-    border: 2px solid #fcabfc
+    border: 2px solid #fcabfc;
+    margin-bottom: 1rem;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
 }
 
 .card img {
     height: 100%;
     width: 100%;
     -o-object-fit: cover;
-    object-fit: cover;
+    object-fit: fill;
     position: absolute;
     transform: rotateY(-180deg);
     -webkit-transform: rotateY(-180deg);
@@ -29,6 +39,7 @@
     -o-transform: rotateY(-180deg);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    border-radius: 7px;
 }
 
 
@@ -46,6 +57,7 @@
     -o-transform: rotateY(0);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    border-radius: 7px;
 }
 
 .card.change-face img {
