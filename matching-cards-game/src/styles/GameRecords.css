@@ -1,0 +1,17 @@
+button {
+    padding: 0.4rem;
+    background-color: transparent;
+    border: 1px solid #fcabfc;
+    outline: none;
+    margin-right: 1rem;
+    width: 70px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.records {
+    padding-block: 2rem;
+}
