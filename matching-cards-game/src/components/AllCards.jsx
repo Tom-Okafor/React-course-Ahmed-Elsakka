@@ -1,5 +1,6 @@
 import Card from "./Card";
 import { SHUFFLED_IMAGES } from "../constants";
+import "../styles/AllCards.css";
 
 function AllCards() {
   return (

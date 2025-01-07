@@ -1,0 +1,99 @@
+.card-box {
+    width: clamp(200px, 85vw, 1000px);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    row-gap: 1rem;
+    justify-content: center;
+}
+
+
+.card {
+    height: 150px;
+    width: 150px;
+    position: relative;
+    perspective: 600px;
+    border: 2px solid #fcabfc
+}
+
+.card img {
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    position: absolute;
+    transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+
+.card .face {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(#fcabfc33, #fcabfc33), url("../../public/assets/question-mark.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotateY(0);
+    -webkit-transform: rotateY(0);
+    -moz-transform: rotateY(0);
+    -ms-transform: rotateY(0);
+    -o-transform: rotateY(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.card.change-face img {
+    animation: unflip 500ms linear 1 forwards;
+    -webkit-animation: unflip 500ms linear 1 forwards;
+}
+
+.card.change-face .face {
+    animation: flip 500ms linear 1 forwards;
+    -webkit-animation: flip 500ms linear 1 forwards;
+}
+
+@-webkit-keyframes flip {
+    to {
+        transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+        -ms-transform: rotateY(180deg);
+        -o-transform: rotateY(180deg);
+    }
+}
+
+@keyframes flip {
+    to {
+        transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+        -ms-transform: rotateY(180deg);
+        -o-transform: rotateY(180deg);
+    }
+}
+
+@-webkit-keyframes unflip {
+    to {
+        transform: rotateY(0deg);
+        -webkit-transform: rotateY(0deg);
+        -moz-transform: rotateY(0deg);
+        -ms-transform: rotateY(0deg);
+        -o-transform: rotateY(0deg);
+    }
+}
+
+@keyframes unflip {
+    to {
+        transform: rotateY(0deg);
+        -webkit-transform: rotateY(0deg);
+        -moz-transform: rotateY(0deg);
+        -ms-transform: rotateY(0deg);
+        -o-transform: rotateY(0deg);
+    }
+}
