@@ -1,4 +1,4 @@
-import { shuffleIndex } from "../constants";
+import { shuffleImages } from "../constants";
 
 export function CardReducer(state, action) {
   switch (action.type) {
@@ -26,13 +26,21 @@ export function CardReducer(state, action) {
     case "Game Started":
       return { ...state, currentSeconds: state.currentSeconds + 1 };
     case "Game Reset":
-      return { ...state, currentSeconds: 0, gameStarted: false };
+      return {
+        ...state,
+        clickedCardIndex: [],
+        matchedCards: [],
+        image: null,
+        haveTwoCardsBeenClicked: false,
+        hasMatchBeenMade: false,
+        matchesMade: 0,
+        gameStarted: false,
+        currentSeconds: 0,
+        SHUFFLED_IMAGES: shuffleImages(),
+      };
     case "Matches Complete":
       return {
         ...state,
-        // clickedCardIndex: [],
-        // image: null,
-        // haveTwoCardsBeenClicked: false,
         currentSeconds: 0,
         gameStarted: false,
         matchesMade: 0,
@@ -60,7 +68,7 @@ export function CardReducer(state, action) {
     case "Reshuffle Card":
       return {
         ...state,
-        SHUFFLED_INDEX: shuffleIndex(),
+        SHUFFLED_IMAGES: shuffleImages(),
       };
   }
 }

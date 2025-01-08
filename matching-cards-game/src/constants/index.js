@@ -32,7 +32,12 @@ export function shuffleIndex() {
   }, []);
 }
 
-export const SHUFFLED_INDEX = shuffleIndex();
+export function shuffleImages() {
+  return shuffleIndex().map(
+    (eachShuffledIndex) => DOUBLED_IMAGES[eachShuffledIndex]
+  );
+}
+const SHUFFLED_IMAGES = shuffleImages();
 
 export const initialCardState = {
   clickedCardIndex: [],
@@ -44,7 +49,7 @@ export const initialCardState = {
   gameStarted: false,
   currentSeconds: 0,
   fastestSeconds: 0,
-  SHUFFLED_INDEX,
+  SHUFFLED_IMAGES,
 };
 
 /*// check to see if all the cards are doubled

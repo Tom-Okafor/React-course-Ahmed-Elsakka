@@ -1,9 +1,4 @@
 .card-box {
-    /* display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    row-gap: 1rem;
-    justify-content: center; */
     display: grid;
     width: clamp(200px, 90vw, 600px);
     grid-template-columns: repeat(4, 1fr);
