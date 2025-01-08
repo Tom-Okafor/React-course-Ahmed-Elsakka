@@ -47,7 +47,7 @@
 .card .face {
     position: absolute;
     inset: 0;
-    background: linear-gradient(#fcabfc33, #fcabfc33), url("../../public/assets/question-mark.png");
+    background: linear-gradient(#fcabfc33, #fcabfc33), url("assets/question-mark.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -64,6 +64,11 @@
 .card.change-face img {
     animation: unflip 500ms linear 1 forwards;
     -webkit-animation: unflip 500ms linear 1 forwards;
+}
+
+.card.card.change-face {
+    cursor: not-allowed;
+    pointer-events: none;
 }
 
 .card.change-face .face {

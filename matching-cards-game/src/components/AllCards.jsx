@@ -1,7 +1,7 @@
 import Card from "./Card";
-import { SHUFFLED_IMAGES } from "../constants";
 import "../styles/AllCards.css";
-import { useContext } from "react";
+import { SHUFFLED_INDEX, DOUBLED_IMAGES } from "../constants";
+import { useContext, useEffect } from "react";
 import { CardContext } from "./App";
 
 function AllCards() {
@@ -66,13 +66,24 @@ function AllCards() {
   }, [haveTwoCardsBeenClicked, hasMatchBeenMade]);
 */
   const { state, dispatch } = useContext(CardContext);
-  const {
-    clickedCardIndex,
-    matchedCards,
-    hasMatchBeenMade,
-    haveTwoCardsBeenClicked,
-  } = state;
-  console.log(clickedCardIndex);
+  const { clickedCardIndex, matchedCards, haveTwoCardsBeenClicked } = state;
+
+  useEffect(() => {
+    //change image
+    //check if match has been made
+    // add index to matched cards
+    //clear clicked index
+    if (haveTwoCardsBeenClicked) {
+      dispatch({ type: "Two Cards Clicked" });
+      setTimeout(() => {
+        dispatch({ type: "Clear Clicked Card Index" });
+      }, 500);
+    }
+  }, [haveTwoCardsBeenClicked, dispatch]);
+  const SHUFFLED_IMAGES = SHUFFLED_INDEX.map(
+    (eachShuffledIndex) => DOUBLED_IMAGES[eachShuffledIndex]
+  );
+
   return (
     <section className="card-box">
       {SHUFFLED_IMAGES.map((image, index) => (

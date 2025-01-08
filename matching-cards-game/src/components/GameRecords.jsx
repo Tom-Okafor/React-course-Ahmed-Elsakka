@@ -1,12 +1,50 @@
-import '../styles/GameRecords.css'
+import "../styles/GameRecords.css";
+import { useContext, useEffect } from "react";
+import { CardContext } from "./App";
 
 function GameRecords() {
+  const totalMatchesNeeded = 8;
+  const { state, dispatch } = useContext(CardContext);
+
+  const { currentSeconds, fastestSeconds, gameStarted, matchesMade } = state;
+
+  useEffect(() => {
+    if (gameStarted) {
+      setTimeout(() => {
+        dispatch({ type: "Game Started" });
+      }, 1000);
+    } else {
+      dispatch({ type: "Game Reset" });
+    }
+  }, [gameStarted, currentSeconds, dispatch]);
+
+  useEffect(() => {
+    if (matchesMade === totalMatchesNeeded) {
+      dispatch({ type: "Matches Complete" });
+      setTimeout(() => {
+        dispatch({ type: "Clear Matched Cards" });
+        dispatch({ type: "Reshuffle Card" });
+      }, 3000);
+    }
+  }, [matchesMade, dispatch]);
   return (
     <section className="records">
-      <h3>Current Time: 0</h3>
-      <h3>Fastest Time: N/A</h3>
-      <button>start</button>
-      <button>restart</button>
+      <h3>Current Time: {currentSeconds}</h3>
+      <h3>Fastest Time: {fastestSeconds ? fastestSeconds : "N/A"}</h3>
+      <button
+        onClick={() => {
+          dispatch({ type: "Start Game" });
+        }}
+      >
+        start
+      </button>
+      <button
+        onClick={() => {
+          dispatch({ type: "Restart Game" });
+        }}
+      >
+        restart
+      </button>
     </section>
   );
 }

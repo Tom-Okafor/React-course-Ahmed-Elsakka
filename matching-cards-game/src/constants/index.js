@@ -9,7 +9,7 @@ const IMAGES = [
   "/assets/tiger.jpg",
 ];
 
-const DOUBLED_IMAGES = [...IMAGES, ...IMAGES];
+export const DOUBLED_IMAGES = [...IMAGES, ...IMAGES];
 
 //shuffle images in DOUBLED_IMAGES array
 function generateRandomIndex(array) {
@@ -26,13 +26,13 @@ function pushRandomNumberIntoArray(parentArr, childArr) {
   return childArr;
 }
 
-const SHUFFLED_INDEX = DOUBLED_IMAGES.reduce((acc) => {
-  return pushRandomNumberIntoArray(DOUBLED_IMAGES, acc);
-}, []);
+export function shuffleIndex() {
+  return DOUBLED_IMAGES.reduce((acc) => {
+    return pushRandomNumberIntoArray(DOUBLED_IMAGES, acc);
+  }, []);
+}
 
-export const SHUFFLED_IMAGES = SHUFFLED_INDEX.map(
-  (eachShuffledIndex) => DOUBLED_IMAGES[eachShuffledIndex]
-);
+export const SHUFFLED_INDEX = shuffleIndex();
 
 export const initialCardState = {
   clickedCardIndex: [],
@@ -43,7 +43,8 @@ export const initialCardState = {
   matchesMade: 0,
   gameStarted: false,
   currentSeconds: 0,
-  fastestSeconds: null,
+  fastestSeconds: 0,
+  SHUFFLED_INDEX,
 };
 
 /*// check to see if all the cards are doubled
