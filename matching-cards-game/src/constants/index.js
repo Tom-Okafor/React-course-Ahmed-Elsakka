@@ -34,6 +34,18 @@ export const SHUFFLED_IMAGES = SHUFFLED_INDEX.map(
   (eachShuffledIndex) => DOUBLED_IMAGES[eachShuffledIndex]
 );
 
+export const initialCardState = {
+  clickedCardIndex: [],
+  matchedCards: [],
+  image: null,
+  haveTwoCardsBeenClicked: false,
+  hasMatchBeenMade: false,
+  matchesMade: 0,
+  gameStarted: false,
+  currentSeconds: 0,
+  fastestSeconds: null,
+};
+
 /*// check to see if all the cards are doubled
 const checkShuffledCards = SHUFFLED_IMAGES.reduce(
   (initialValue, currentValue) => {
