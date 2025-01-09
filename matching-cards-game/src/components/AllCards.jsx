@@ -22,6 +22,9 @@ function AllCards() {
       dispatch({ type: "Two Cards Clicked" });
       setTimeout(() => {
         dispatch({ type: "Clear Clicked Card Index" });
+        setTimeout(() => {
+          dispatch({ type: "Clear Failed Match" });
+        }, 1000);
       }, 1000);
     }
   }, [haveTwoCardsBeenClicked, hasMatchBeenMade, dispatch]);
@@ -38,6 +41,8 @@ function AllCards() {
               ? "change-face"
               : matchedCards.includes(index)
               ? "change-face matched"
+              : failedMatch.includes(index)
+              ? "hide-face"
               : ""
           }
           style={

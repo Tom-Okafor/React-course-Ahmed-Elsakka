@@ -81,7 +81,9 @@ export function CardReducer(state, action) {
         failedMatch: !state.hasMatchBeenMade ? [...state.clickedCardIndex] : [],
       };
     case "Clear Clicked Card Index":
-      return { ...state, clickedCardIndex: [], failedMatch: [] };
+      return { ...state, clickedCardIndex: [] };
+    case "Clear Failed Match":
+      return { ...state, failedMatch: [] };
     case "Reshuffle Card":
       return {
         ...state,

@@ -78,6 +78,45 @@
     -webkit-animation: flip 500ms linear 1 forwards;
 }
 
+.card.hide-face .face {
+    transform: rotateY(180deg);
+    animation: unhide 500ms linear 1 forwards;
+    -webkit-animation: unhide 500ms linear 1 forwards;
+}
+
+.card.hide-face img {
+    transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    animation: hide 500ms linear 1 forwards;
+    -webkit-animation: hide 500ms linear 1 forwards;
+}
+
+
+
+@keyframes hide {
+    to {
+        transform: rotateY(-180deg);
+        -webkit-transform: rotateY(-180deg);
+        -moz-transform: rotateY(-180deg);
+        -ms-transform: rotateY(-180deg);
+        -o-transform: rotateY(-180deg);
+    }
+
+}
+
+@keyframes unhide {
+    to {
+        transform: rotateY(0deg);
+        -webkit-transform: rotateY(0deg);
+        -moz-transform: rotateY(0deg);
+        -ms-transform: rotateY(0deg);
+        -o-transform: rotateY(0deg);
+}
+
+}
 
 @-webkit-keyframes flip {
     to {
