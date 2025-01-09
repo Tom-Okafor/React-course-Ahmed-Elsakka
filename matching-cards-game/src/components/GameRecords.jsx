@@ -30,24 +30,29 @@ function GameRecords() {
   }, [matchesMade, dispatch]);
   return (
     <section className="records">
-      <h3>Current Time: {currentSeconds}</h3>
-      <h3>Fastest Time: {fastestSeconds ? fastestSeconds : "N/A"}</h3>
-      <button
-        onClick={() => {
-          dispatch({ type: "Start Game" });
-        }}
-      >
-        start
-      </button>
-      <button
-        onClick={() => {
-          dispatch({ type: "Restart Game" });
-          dispatch({ type: "Clear Matched Cards" });
-          dispatch({ type: "Reshuffle Card" });
-        }}
-      >
-        restart
-      </button>
+      <div className="scores">
+        <h3>Current Time: {currentSeconds}</h3>
+        <h3>Fastest Time: {fastestSeconds ? fastestSeconds : "N/A"}</h3>
+      </div>
+
+      <div className="buttons">
+        <button
+          onClick={() => {
+            dispatch({ type: "Start Game" });
+          }}
+        >
+          start
+        </button>
+        <button
+          onClick={() => {
+            dispatch({ type: "Restart Game" });
+            dispatch({ type: "Clear Matched Cards" });
+            dispatch({ type: "Reshuffle Card" });
+          }}
+        >
+          restart
+        </button>
+      </div>
 
       <h4>{alert}</h4>
     </section>

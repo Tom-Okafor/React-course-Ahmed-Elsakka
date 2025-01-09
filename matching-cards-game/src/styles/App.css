@@ -1,5 +1,26 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: sandybrown;
+    color: #fa5cfa;
+    font-size: 2rem;
+    margin-top: 2rem;
+    font-family: cursive;
+    padding-block: 1rem;
+    letter-spacing: 3px;
+    word-spacing: 4px;
+    line-height: 3rem;
 }

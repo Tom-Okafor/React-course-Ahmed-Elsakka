@@ -1,17 +1,58 @@
 button {
     padding: 0.4rem;
     background-color: transparent;
-    border: 1px solid #fcabfc;
+    border: 2px solid #fc9dfc;
     outline: none;
-    margin-right: 1rem;
+    margin-right: 1.2rem;
     width: 70px;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+    -webkit-transition: all 300ms ease-in-out;
+    -moz-transition: all 300ms ease-in-out;
+    -ms-transition: all 300ms ease-in-out;
+    -o-transition: all 300ms ease-in-out;
+}
+
+
+button:hover {
+    box-shadow: 0px 0px 30px #fcabfc, 0px 0px 30px #fcabfc
 }
 
 .records {
     padding-block: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.records>div {
+    display: flex;
+}
+
+.scores {
+    gap: 1.5rem;
+}
+
+.scores h3:first-child {
+    padding-inline-end: 1.5rem;
+    border-right: 2px solid saddlebrown;
+}
+
+* {
+    color: sienna;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 600;
+}
+
+h4 {
+    max-width: 50ch;
+    text-align: center;
 }

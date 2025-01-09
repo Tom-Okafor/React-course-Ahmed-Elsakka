@@ -32,7 +32,8 @@ export function CardReducer(state, action) {
       return {
         ...state,
         gameStarted: false,
-        alert: "Click the start button and then click on the cards to flip.",
+        alert:
+          "Click the start button and then click on the cards to flip them over and find the matching pairs.",
       };
     case "Game Started":
       return { ...state, currentSeconds: state.currentSeconds + 1 };

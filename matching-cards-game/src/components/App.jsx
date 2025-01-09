@@ -10,7 +10,8 @@ function App() {
   const [state, dispatch] = useReducer(CardReducer, initialCardState);
   return (
     <>
-      <h1>Matching cards game</h1>
+      <h1>Matching pairs game</h1>
+
       <CardContext.Provider value={{ state, dispatch }}>
         <GameRecords />
         <AllCards />

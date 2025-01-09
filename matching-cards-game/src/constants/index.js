@@ -50,7 +50,8 @@ export const initialCardState = {
   currentSeconds: 0,
   fastestSeconds: 0,
   SHUFFLED_IMAGES,
-  alert: "Click the start button and then click on the cards to flip."
+  alert:
+    "Click the start button and then click on the cards to flip them over and find the matching pairs.",
 };
 
 /*// check to see if all the cards are doubled
