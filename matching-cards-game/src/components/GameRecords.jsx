@@ -6,7 +6,8 @@ function GameRecords() {
   const totalMatchesNeeded = 8;
   const { state, dispatch } = useContext(CardContext);
 
-  const { currentSeconds, fastestSeconds, gameStarted, matchesMade } = state;
+  const { currentSeconds, fastestSeconds, gameStarted, matchesMade, alert } =
+    state;
 
   useEffect(() => {
     if (gameStarted) {
@@ -22,8 +23,8 @@ function GameRecords() {
     if (matchesMade === totalMatchesNeeded) {
       dispatch({ type: "Matches Complete" });
       setTimeout(() => {
-        dispatch({ type: "Clear Matched Cards" });
         dispatch({ type: "Reshuffle Card" });
+        dispatch({ type: "Clear Matched Cards" });
       }, 3000);
     }
   }, [matchesMade, dispatch]);
@@ -41,10 +42,14 @@ function GameRecords() {
       <button
         onClick={() => {
           dispatch({ type: "Restart Game" });
+          dispatch({ type: "Clear Matched Cards" });
+          dispatch({ type: "Reshuffle Card" });
         }}
       >
         restart
       </button>
+
+      <h4>{alert}</h4>
     </section>
   );
 }

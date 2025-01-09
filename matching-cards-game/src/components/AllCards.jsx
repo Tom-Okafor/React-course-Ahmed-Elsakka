@@ -13,10 +13,7 @@ function AllCards() {
   } = state;
 
   useEffect(() => {
-    //change image
-    //check if match has been made
-    // add index to matched cards
-    //clear clicked index
+    
     if (haveTwoCardsBeenClicked) {
       dispatch({ type: "Two Cards Clicked" });
       setTimeout(() => {

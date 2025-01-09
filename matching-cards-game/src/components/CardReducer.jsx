@@ -18,25 +18,34 @@ export function CardReducer(state, action) {
             hasMatchBeenMade:
               state.image === action.payload.image ? true : false,
           }
-        : { ...state };
+        : {
+            ...state,
+            alert: "Sorry, you must click the start button before you begin.",
+          };
     case "Start Game":
-      return { ...state, gameStarted: true };
+      return {
+        ...state,
+        gameStarted: true,
+        alert: "Game started! You better get to matching.",
+      };
     case "Restart Game":
-      return { ...state, gameStarted: false };
+      return {
+        ...state,
+        gameStarted: false,
+        alert: "Click the start button and then click on the cards to flip.",
+      };
     case "Game Started":
       return { ...state, currentSeconds: state.currentSeconds + 1 };
     case "Game Reset":
       return {
         ...state,
         clickedCardIndex: [],
-        matchedCards: [],
         image: null,
         haveTwoCardsBeenClicked: false,
         hasMatchBeenMade: false,
         matchesMade: 0,
         gameStarted: false,
         currentSeconds: 0,
-        SHUFFLED_IMAGES: shuffleImages(),
       };
     case "Matches Complete":
       return {
@@ -62,6 +71,12 @@ export function CardReducer(state, action) {
           : state.matchedCards,
         haveTwoCardsBeenClicked: false,
         hasMatchBeenMade: false,
+        alert:
+          state.alert === "7 matches made."
+            ? `All matches made. Start again and try to beat your fastest time.`
+            : state.matchesMade === 1
+            ? `${state.matchesMade} match made.`
+            : `${state.matchesMade} matches made.`,
       };
     case "Clear Clicked Card Index":
       return { ...state, clickedCardIndex: [] };
