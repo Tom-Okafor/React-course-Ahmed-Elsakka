@@ -10,11 +10,14 @@ function AllCards() {
     matchedCards,
     haveTwoCardsBeenClicked,
     SHUFFLED_IMAGES,
+    hasMatchBeenMade,
   } = state;
 
   useEffect(() => {
-    
     if (haveTwoCardsBeenClicked) {
+      hasMatchBeenMade
+        ? new Audio("assets/yay.mp3").play()
+        : new Audio("assets/no.mp3").play();
       dispatch({ type: "Two Cards Clicked" });
       setTimeout(() => {
         dispatch({ type: "Clear Clicked Card Index" });

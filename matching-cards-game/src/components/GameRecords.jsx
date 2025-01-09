@@ -21,6 +21,7 @@ function GameRecords() {
 
   useEffect(() => {
     if (matchesMade === totalMatchesNeeded) {
+      new Audio("assets/matched.mp3").play();
       dispatch({ type: "Matches Complete" });
       setTimeout(() => {
         dispatch({ type: "Reshuffle Card" });
