@@ -39,7 +39,6 @@
     -o-transform: rotateY(-180deg);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    border-radius: 7px;
 }
 
 
@@ -70,10 +69,15 @@
     pointer-events: none;
 }
 
+.card.card.change-face.matched {
+    border: 4px solid palevioletred;
+}
+
 .card.change-face .face {
     animation: flip 500ms linear 1 forwards;
     -webkit-animation: flip 500ms linear 1 forwards;
 }
+
 
 @-webkit-keyframes flip {
     to {

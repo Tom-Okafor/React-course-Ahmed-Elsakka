@@ -52,6 +52,7 @@ export const initialCardState = {
   SHUFFLED_IMAGES,
   alert:
     "Click the start button and then click on the cards to flip them over and find the matching pairs.",
+  failedMatch: [],
 };
 
 /*// check to see if all the cards are doubled
