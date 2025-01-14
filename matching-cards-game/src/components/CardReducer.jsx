@@ -53,7 +53,6 @@ export function CardReducer(state, action) {
         ...state,
         currentSeconds: 0,
         gameStarted: false,
-        matchesMade: 0,
         fastestSeconds:
           state.fastestSeconds === 0
             ? state.currentSeconds
@@ -88,6 +87,13 @@ export function CardReducer(state, action) {
       return {
         ...state,
         SHUFFLED_IMAGES: shuffleImages(),
+      };
+    case "Clear Matches Made":
+      return {
+        ...state,
+        matchesMade: 0,
+        alert:
+          "Click the start button and then click on the cards to flip them over and find the matching pairs.",
       };
   }
 }

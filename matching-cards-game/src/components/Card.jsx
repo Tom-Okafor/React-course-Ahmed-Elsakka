@@ -8,7 +8,7 @@ export default function Card({
   style,
 }) {
   return (
-    <div className={`card ${newClass}`} onClick={clickFunction} style={style}>
+    <div className={`card ${newClass}`} onClick={clickFunction} style={style} role="button" aria-roledescription="card buttons. click on them to flip the card" tabIndex={0}>
       <img src={imageSource} alt={altText} />
       <div className="face"></div>
     </div>

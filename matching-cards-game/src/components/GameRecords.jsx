@@ -26,6 +26,7 @@ function GameRecords() {
       setTimeout(() => {
         dispatch({ type: "Reshuffle Card" });
         dispatch({ type: "Clear Matched Cards" });
+        dispatch({ type: "Clear Matches Made" });
       }, 3000);
     }
   }, [matchesMade, dispatch]);

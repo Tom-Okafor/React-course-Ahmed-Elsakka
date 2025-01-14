@@ -25,7 +25,7 @@ function AllCards() {
         setTimeout(() => {
           dispatch({ type: "Clear Failed Match" });
         }, 1000);
-      }, 1000);
+      }, 500);
     }
   }, [haveTwoCardsBeenClicked, hasMatchBeenMade, dispatch]);
 

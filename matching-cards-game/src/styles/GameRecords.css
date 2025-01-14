@@ -4,7 +4,7 @@ button {
     border: 2px solid #fc9dfc;
     outline: none;
     margin-right: 1.2rem;
-    width: 70px;
+    width: 80px;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -21,6 +21,10 @@ button {
 
 button:hover {
     box-shadow: 0px 0px 30px #fcabfc, 0px 0px 30px #fcabfc
+}
+
+button:focus {
+    outline: 2px solid #fc9dfc;
 }
 
 .records {
@@ -47,12 +51,21 @@ button:hover {
 
 * {
     color: sienna;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-weight: 600;
 }
 
 h4 {
     max-width: 50ch;
     text-align: center;
+}
+
+body:has(.dark) *:not(h1) {
+    color: #d88e45;
+}
+
+h4,
+h3,
+button {
+    font-size: 1.1rem;
+    letter-spacing: 2.5px;
+    line-height: 1.8rem;
 }
