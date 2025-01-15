@@ -10,7 +10,8 @@ function App() {
   const [state, dispatch] = useReducer(CardReducer, initialCardState);
   const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
   const [isDarkModePreferred, setDisplaySettings] = useState(
-    JSON.parse(localStorage.isDarkModePreferred) || mediaQuery.matches
+    JSON.parse(localStorage.isDarkModePreferred || "false") ||
+      mediaQuery.matches
   );
   function changeDisplayMode() {
     setDisplaySettings((prev) => {

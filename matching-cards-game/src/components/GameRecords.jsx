@@ -3,11 +3,16 @@ import { useContext, useEffect } from "react";
 import { CardContext } from "./App";
 
 function GameRecords() {
-  const totalMatchesNeeded = 8;
   const { state, dispatch } = useContext(CardContext);
 
-  const { currentSeconds, fastestSeconds, gameStarted, matchesMade, alert } =
-    state;
+  const {
+    currentSeconds,
+    fastestSeconds,
+    gameStarted,
+    matchesMade,
+    alert,
+    totalMatchesNeeded,
+  } = state;
 
   useEffect(() => {
     if (gameStarted) {
@@ -29,13 +34,39 @@ function GameRecords() {
         dispatch({ type: "Clear Matches Made" });
       }, 3000);
     }
-  }, [matchesMade, dispatch]);
+  }, [matchesMade, totalMatchesNeeded, dispatch]);
   return (
     <section className="records">
       <div className="scores">
         <h3>Current Time: {currentSeconds}</h3>
         <h3>Fastest Time: {fastestSeconds ? fastestSeconds : "N/A"}</h3>
       </div>
+
+      <form action="">
+        <label htmlFor="level" id="label">
+          Please, select preferred level:
+        </label>
+        <select
+          name="level"
+          id="level"
+          role="listbox"
+          aria-labelledby="label"
+          onChange={(event) => {
+            dispatch({ type: "Start New Level", payload: event.target.value });
+            dispatch({ type: "Update Total Matches Needed" });
+          }}
+        >
+          <option value="easy" role="option">
+            easy
+          </option>
+          <option value="intermediate" role="option">
+            intermediate
+          </option>
+          <option value="hard" role="option">
+            hard
+          </option>
+        </select>
+      </form>
 
       <div className="buttons">
         <button

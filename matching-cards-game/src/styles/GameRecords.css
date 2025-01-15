@@ -1,7 +1,7 @@
 button {
     padding: 0.4rem;
     background-color: transparent;
-    border: 2px solid #fc9dfc;
+    border: 2px solid #fa5cfa;
     outline: none;
     margin-right: 1.2rem;
     width: 80px;
@@ -64,8 +64,46 @@ body:has(.dark) *:not(h1) {
 
 h4,
 h3,
-button {
+button,
+label,
+option,
+select {
     font-size: 1.1rem;
     letter-spacing: 2.5px;
     line-height: 1.8rem;
+}
+
+form {
+    display: flex;
+    gap: 2rem;
+}
+
+label#label {
+    font-size: 1.3rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: #fa5cfa;
+    letter-spacing: 3px;
+
+}
+
+select#level {
+    background-color: transparent;
+    outline: 2px solid #fa5cfa;
+    border: none;
+    color: #fa5cfa;
+    padding-inline: 5px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+#level>option {
+    color: #fa5cfa;
+}
+
+body:has(.dark) #level option {
+    background-color: black;
 }

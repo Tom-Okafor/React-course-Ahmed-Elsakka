@@ -9,7 +9,7 @@ const IMAGES = [
   "/assets/tiger.jpg",
 ];
 
-export const DOUBLED_IMAGES = [...IMAGES, ...IMAGES];
+const DOUBLED_IMAGES = [...IMAGES, ...IMAGES];
 
 //shuffle images in DOUBLED_IMAGES array
 function generateRandomIndex(array) {
@@ -26,7 +26,7 @@ function pushRandomNumberIntoArray(parentArr, childArr) {
   return childArr;
 }
 
-export function shuffleIndex() {
+function shuffleIndex() {
   return DOUBLED_IMAGES.reduce((acc) => {
     return pushRandomNumberIntoArray(DOUBLED_IMAGES, acc);
   }, []);
@@ -39,6 +39,37 @@ export function shuffleImages() {
 }
 const SHUFFLED_IMAGES = shuffleImages();
 
+export const CREATE_SHUFFLED_IMAGE_COLLECTION = (level = "easy") => {
+  let numOfImagesNeeded;
+  switch (level) {
+    case "easy":
+      numOfImagesNeeded = 4;
+      break;
+    case "intermediate":
+      numOfImagesNeeded = 6;
+      break;
+    case "hard":
+      numOfImagesNeeded = 8;
+      break;
+  }
+  const IMAGES_NEEDED = IMAGES.filter((_, index) => index < numOfImagesNeeded);
+  const DOUBLED_IMAGES = [...IMAGES_NEEDED, ...IMAGES_NEEDED];
+
+  function shuffleIndex() {
+    return DOUBLED_IMAGES.reduce((acc) => {
+      return pushRandomNumberIntoArray(DOUBLED_IMAGES, acc);
+    }, []);
+  }
+
+  function shuffleImages() {
+    return shuffleIndex().map(
+      (eachShuffledIndex) => DOUBLED_IMAGES[eachShuffledIndex]
+    );
+  }
+  const SHUFFLED_IMAGES = shuffleImages();
+  return SHUFFLED_IMAGES;
+};
+
 export const initialCardState = {
   clickedCardIndex: [],
   matchedCards: [],
@@ -49,7 +80,9 @@ export const initialCardState = {
   gameStarted: false,
   currentSeconds: 0,
   fastestSeconds: 0,
-  SHUFFLED_IMAGES,
+  level: "easy",
+  totalMatchesNeeded: 4,
+  SHUFFLED_IMAGES: CREATE_SHUFFLED_IMAGE_COLLECTION(),
   alert:
     "Click the start button and then click on the cards to flip them over and find the matching pairs.",
   failedMatch: [],

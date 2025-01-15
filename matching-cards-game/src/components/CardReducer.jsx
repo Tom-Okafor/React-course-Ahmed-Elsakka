@@ -1,4 +1,4 @@
-import { shuffleImages } from "../constants";
+import { CREATE_SHUFFLED_IMAGE_COLLECTION } from "../constants";
 
 export function CardReducer(state, action) {
   switch (action.type) {
@@ -72,7 +72,7 @@ export function CardReducer(state, action) {
         haveTwoCardsBeenClicked: false,
         hasMatchBeenMade: false,
         alert:
-          state.alert === "7 matches made."
+          state.alert === `${state.totalMatchesNeeded - 1} matches made.`
             ? `All matches made. Start again and try to beat your fastest time.`
             : state.matchesMade === 1
             ? `${state.matchesMade} match made.`
@@ -86,7 +86,7 @@ export function CardReducer(state, action) {
     case "Reshuffle Card":
       return {
         ...state,
-        SHUFFLED_IMAGES: shuffleImages(),
+        SHUFFLED_IMAGES: CREATE_SHUFFLED_IMAGE_COLLECTION(state.level),
       };
     case "Clear Matches Made":
       return {
@@ -94,6 +94,18 @@ export function CardReducer(state, action) {
         matchesMade: 0,
         alert:
           "Click the start button and then click on the cards to flip them over and find the matching pairs.",
+      };
+    case "Start New Level":
+      return {
+        ...state,
+        level: action.payload,
+        SHUFFLED_IMAGES: CREATE_SHUFFLED_IMAGE_COLLECTION(action.payload),
+      };
+    case "Update Total Matches Needed":
+      return {
+        ...state,
+        totalMatchesNeeded:
+          state.level === "easy" ? 4 : state.level === "intermediate" ? 6 : 8,
       };
   }
 }
