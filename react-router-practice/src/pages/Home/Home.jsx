@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   const paragraphStyles =
-    "text-sm text-[#ffffffaa] md:text-lg max-w-prose [word-spacing:3px] tracking-wider leading-[1.5] backdrop-blur-[2px]";
+    "text-sm text-[#ffffffaa] md:text-lg max-w-prose [word-spacing:3px] tracking-wider leading-[1.5] backdrop-blur-[5px] p-4 shadow-[0px_0px_8px_#ffffff] rounded-xl hover:bg-[linear-gradient(#000000aa,#000000aa),url(homeImage.jpeg)] bg-contain bg-fixed duration-500";
   return (
-    <main className="h-dvh bg-[linear-gradient(to_right_top,#00000055,#00000099),url(homeImage.jpeg)] bg-no-repeat bg-cover bg-center *:text-white flex items-center">
+    <main className="h-dvh bg-[linear-gradient(to_right_top,#00000055,#00000099),url(homeImage.jpeg)] bg-no-repeat bg-cover bg-fixed bg-center *:text-white flex items-center">
       <div className="flex flex-col gap-2.5 px-8">
         <h1 className="font-extrabold font-serif text-4xl md:text-6xl tracking-widest uppercase text-green-400">
           Home Supplies
@@ -26,7 +26,7 @@ export default function Home() {
           find the perfect pieces to complement your unique style and needs.
         </p>
 
-        <div className="flex gap-4 *:border-2">
+        <div className="flex gap-4 items-center *:border-2 *:bg-green-800 *:hover:bg-green-600 *:duration-300 tracking-[3px] *:py-3 *:px-6 *:rounded-4xl *:backdrop-blur-[2px] mt-4 font-semibold font-serif">
           <Link to="about">About us</Link>
           <Link to="products">Our Products</Link>
           <Link to="contact">Contact Us</Link>
