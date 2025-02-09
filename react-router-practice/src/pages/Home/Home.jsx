@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
-    <main className="h-dvh bg-[linear-gradient(to_right_top,#00000099,#00000055),url(home.jpg)] bg-no-repeat bg-cover bg-center *:text-white">
+    <main className="h-dvh bg-[linear-gradient(to_right_top,#00000055,#00000099),url(homeImage.jpeg)] bg-no-repeat bg-cover bg-center *:text-white">
       <div>
         <h1 className="bold font-serif text-4xl tracking-[2px]">
           Home Supplies
