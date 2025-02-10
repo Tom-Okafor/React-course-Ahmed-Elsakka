@@ -27,9 +27,15 @@ export default function Home() {
         </p>
 
         <div className="flex gap-3 flex-wrap items-center *:border-2 *:bg-green-800 *:hover:bg-green-600 *:duration-300 tracking-[1px] md:tracking-[3px] *:py-2 *:px-4 text-sm md:text-lg md:*:py-3 md:*:px-6 *:rounded-4xl mt-4 font-semibold font-serif">
-          <Link to="about">About us</Link>
-          <Link to="products">Our Products</Link>
-          <Link to="contact">Contact Us</Link>
+          <Link to="about" aria-label="learn more about us">
+            About us
+          </Link>
+          <Link to="products" aria-label="Browse our products">
+            Our Products
+          </Link>
+          <Link to="contact" aria-label="Get in touch with us">
+            Contact Us
+          </Link>
         </div>
       </div>
     </main>
