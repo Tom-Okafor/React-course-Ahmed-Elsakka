@@ -8,8 +8,22 @@
     -o-transition: all 3s ease;
 }
 
+.about-h1 {
+    text-shadow: 10px 0px 10px var(--color-green-800);
+    transition: all 3s ease;
+    -webkit-transition: all 3;
+    -moz-transition: all 3;
+    -ms-transition: all 3;
+    -o-transition: all 3;
+}
+
 @starting-style {
     .about-img {
         width: 500px
+    }
+
+    .about-h1 {
+        letter-spacing: -12px;
+        text-shadow: 0px 0px
     }
 }

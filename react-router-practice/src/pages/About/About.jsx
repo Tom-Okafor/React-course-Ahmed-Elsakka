@@ -1,6 +1,9 @@
 export default function About() {
   return (
-    <section className="about-section space-y-8">
+    <section className="about-section space-y-4">
+      <h1 className="uppercase text-green-600 font-black text-3xl md:text-8xl font-[yatra_one] tracking-widest py-4 px-8 about-h1">
+        about us
+      </h1>
       <img
         src="aboutImage.jpg"
         alt="household appliance image"
