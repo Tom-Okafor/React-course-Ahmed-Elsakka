@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+.about-img {
+    transition: all 3s ease;
+    -webkit-transition: all 3s ease;
+    -moz-transition: all 3s ease;
+    -ms-transition: all 3s ease;
+    -o-transition: all 3s ease;
+}
+
+@starting-style {
+    .about-img {
+        width: 500px
+    }
+}

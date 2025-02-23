@@ -4,7 +4,7 @@ export default function About() {
       <img
         src="aboutImage.jpg"
         alt="household appliance image"
-        className="object-cover w-full h-screen"
+        className="object-cover w-full h-screen about-img flex mx-auto"
       />
       <div className="space-y-8 w-6/7 mx-auto  *:text-xl *:leading-[150%] *:tracking-[1.5px] *:max-w-prose ">
         <h1 className="uppercase text-green-400 font-black text-2xl md:text-5xl font-serif tracking-tighter py-4">
