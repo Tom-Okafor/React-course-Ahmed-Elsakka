@@ -9,7 +9,7 @@
 }
 
 .about-h1 {
-    text-shadow: 10px 0px 10px var(--color-green-800);
+    text-shadow: 3px 0px 1px var(--color-green-800);
     transition: all 3s ease;
     -webkit-transition: all 3;
     -moz-transition: all 3;

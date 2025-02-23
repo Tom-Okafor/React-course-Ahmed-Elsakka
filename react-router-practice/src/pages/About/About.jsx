@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <section className="about-section space-y-4">
+    <section className="about-section space-y-4 pb-24">
       <h1 className="uppercase text-green-600 font-black text-3xl md:text-8xl font-[yatra_one] tracking-widest py-4 px-8 about-h1">
         about us
       </h1>
@@ -64,7 +64,7 @@ export default function About() {
         <p>
           Join us in our mission to create a better, more comfortable living
           space for you and your loved ones. Discover the perfect blend of
-          style, functionality, and innovation with [Your Company Name].
+          style, functionality, and innovation with Home Supplies.
         </p>
       </div>
     </section>
