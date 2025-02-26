@@ -17,13 +17,25 @@
     -o-transition: all 3;
 }
 
+.show-text {
+    transition: all 3s ease;
+    -webkit-transition: all;
+    -moz-transition: all;
+    -ms-transition: all;
+    -o-transition: all;
+}
+
 @starting-style {
     .about-img {
-        width: 500px
+        width: 500px;
     }
 
     .about-h1 {
         letter-spacing: -12px;
-        text-shadow: 0px 0px
+        text-shadow: 0px 0px;
+    }
+
+    .show-text {
+        opacity: 0;
     }
 }
